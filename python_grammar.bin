@@ -1,0 +1,90 @@
+
+
+1. encode format
+    1.1 With interpreter binary and using Emacs style file encoding
+        comment:
+
+          #!/usr/bin/python
+          # -*- coding: latin-1 -*-
+          import os, sys
+          ...
+
+          #!/usr/bin/python
+          # -*- coding: iso-8859-15 -*-
+          import os, sys
+          ...
+
+          #!/usr/bin/python
+          # -*- coding: ascii -*-
+          import os, sys
+          ...
+
+    2.2 Without interpreter line, using plain text:
+
+          # This Python file uses the following encoding: utf-8
+          import os, sys
+          ...
+
+    3.3 Text editors might have different ways of defining the file's
+       encoding, e.g.
+
+          #!/usr/local/bin/python
+          # coding: latin-1
+          import os, sys
+          ...
+
+    4.4 Without encoding comment, Python's parser will assume ASCII
+       text:
+
+          #!/usr/local/bin/python
+          import os, sys
+          ...
+
+    5.5 Encoding comments which don't work:
+
+       Missing "coding:" prefix:
+
+          #!/usr/local/bin/python
+          # latin-1
+          import os, sys
+          ...
+
+       Encoding comment not on line 1 or 2:
+
+          #!/usr/local/bin/python
+          #
+          # -*- coding: latin-1 -*-
+          import os, sys
+          ...
+
+       Unsupported encoding:
+
+          #!/usr/local/bin/python
+          # -*- coding: utf-42 -*-
+          import os, sys
+          
+          
+2. grid布局函数注意
+
+
+
+
+3. Tk.geometry("WxH+x+y")  
+
+   Tk.geometry("WxH+x+y")   
+ W: windows width
+ H: windows high 
+ +/- 表示屏幕绝对位置偏移   + 以左上角为原点，-以右下角为原点
+ 
+ 
+4. Entry,Text  
+   Entry.get()            Entry.delete
+   Text(index1,index2)
+   END 为结尾 
+   空间无内容 使用 == '' 判断
+   
+5. 生成pyc文件 
+   5.1 在dos 窗口中 直接使用指令操作
+        python -m  dir.py    # 该操作会在 dir.py文件中生成__pycache__ 并生成 pyc文件
+    缺点是会运行
+   5.2 使用 compile 模块    
